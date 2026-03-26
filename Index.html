@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humand Partner – Potenciá tu consultoría</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #f0f0f0; line-height: 1.6; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
+  .nav-logo span { color: #6c63ff; }
+  .nav-cta { background: #6c63ff; color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+  .nav-cta:hover { background: #5a52e0; }
+
+  .hero { min-height: 92vh; display: flex; align-items: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .hero-badge { display: inline-block; background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4); color: #a89fff; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 100px; margin-bottom: 28px; letter-spacing: 0.5px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 62px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; color: #ffffff; margin-bottom: 24px; }
+  .hero h1 em { font-style: normal; color: #6c63ff; }
+  .hero p { font-size: 18px; color: #9999bb; margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-primary { background: #6c63ff; color: #fff; padding: 16px 32px; border-radius: 10px; font-size: 16px; font-weight: 700; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-primary:hover { background: #5a52e0; transform: translateY(-1px); }
+  .hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 40px; }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+  .stat-num span { color: #6c63ff; }
+  .stat-label { font-size: 13px; color: #666688; margin-top: 2px; }
+
+  section { padding: 80px 24px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  .section-tag { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #6c63ff; text-transform: uppercase; margin-bottom: 12px; }
+  .section-title { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1.5px; color: #fff; margin-bottom: 16px; line-height: 1.15; }
+  .section-sub { font-size: 17px; color: #7777aa; max-width: 580px; line-height: 1.65; }
+
+  .for-who { background: #0f0f1a; }
+  .icp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 48px; }
+  .icp-card { background: #16162a; border: 1px solid rgba(108,99,255,0.15); border-radius: 14px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; }
+  .icp-card:hover { border-color: rgba(108,99,255,0.5); transform: translateY(-3px); }
+  .icp-icon { font-size: 28px; margin-bottom: 14px; }
+  .icp-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .icp-card p { font-size: 13px; color: #7777aa; line-height: 1.55; }
+  .icp-tag { display: inline-block; background: rgba(108,99,255,0.12); color: #a89fff; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; margin-top: 12px; }
+
+  .how { background: #0a0a0f; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; margin-top: 48px; }
+  .step { padding: 32px 24px; position: relative; }
+  .step:not(:last-child)::after { content: '→'; position: absolute; right: -10px; top: 44px; color: #333355; font-size: 24px; font-weight: 300; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #6c63ff; margin-bottom: 16px; }
+  .step h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .step p { font-size: 13px; color: #7777aa; line-height: 1.55; }
+
+  .earning { background: #0f0f1a; }
+  .earn-box { background: #16162a; border: 1px solid rgba(108,99,255,0.25); border-radius: 20px; padding: 48px; margin-top: 40px; }
+  .earn-highlight { font-size: clamp(48px, 8vw, 80px); font-weight: 900; color: #6c63ff; letter-spacing: -3px; line-height: 1; }
+  .earn-desc { font-size: 18px; color: #aaaacc; margin-top: 12px; margin-bottom: 40px; line-height: 1.55; }
+  .earn-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .earn-ex { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 24px; }
+  .earn-ex .label { font-size: 12px; color: #555577; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .earn-ex .amount { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+  .earn-ex .context { font-size: 13px; color: #7777aa; margin-top: 4px; }
+
+  .proof { background: #0a0a0f; }
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 48px; }
+  .proof-card { background: #16162a; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 28px 20px; text-align: center; }
+  .proof-num { font-size: 36px; font-weight: 900; letter-spacing: -1.5px; color: #6c63ff; }
+  .proof-text { font-size: 13px; color: #7777aa; margin-top: 6px; line-height: 1.4; }
+
+  .cta-section { background: #0f0f1a; }
+  .cta-wrap { max-width: 580px; margin: 0 auto; text-align: center; }
+  .cta-wrap .section-title { text-align: center; }
+  .cta-wrap .section-sub { margin: 0 auto 40px; text-align: center; }
+  .cta-big { display: inline-block; background: #6c63ff; color: #fff; padding: 20px 44px; border-radius: 12px; font-size: 18px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-bottom: 20px; }
+  .cta-big:hover { background: #5a52e0; transform: translateY(-2px); }
+  .cta-note { font-size: 13px; color: #444466; }
+
+  footer { background: #07070e; border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 24px; text-align: center; }
+  footer p { font-size: 13px; color: #444466; }
+  footer span { color: #6c63ff; }
+
+  @media (max-width: 600px) {
+    .step:not(:last-child)::after { display: none; }
+    .earn-box { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">hu<span>mand</span> partners</div>
+  <a href="#cta" class="nav-cta">Agendar sesión →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🤝 Modelo de alianza para consultores</div>
+    <h1>Potenciá tu consultoría<br>con una <em>plataforma HR all-in-one</em></h1>
+    <p>Si trabajás con empresas en temas de personas, cultura o transformación, podés complementar lo que ya ofrecés con una herramienta que tus clientes van a querer — y generar ingresos sin dejar de ser quien sos.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/tatiana-perez-humand/30min" target="_blank" class="btn-primary">Me interesa conocer el modelo de alianza →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num"><span>+</span>1K</div>
+        <div class="stat-label">Empresas usan Humand</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>+</span>40</div>
+        <div class="stat-label">Países</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>+</span>400</div>
+        <div class="stat-label">Clientes via partners</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50<span>%</span></div>
+        <div class="stat-label">Comisión 1er año</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who" id="para-quien">
+  <div class="section-inner">
+    <p class="section-tag">¿Para quién es?</p>
+    <h2 class="section-title">Para quienes ya trabajan<br>con empresas en temas de personas</h2>
+    <p class="section-sub">No necesitás ser experto en tecnología ni en ventas. Solo tener clientes que gestionan equipos y la confianza que ya te ganaste con ellos.</p>
+    <div class="icp-grid">
+      <div class="icp-card">
+        <div class="icp-icon">🏢</div>
+        <h3>Consultores de RRHH</h3>
+        <p>Clima, cultura, comunicación interna, gestión del cambio. Ya estás en la conversación correcta con tus clientes.</p>
+        <span class="icp-tag">Fit ideal</span>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">🎯</div>
+        <h3>Coaches Organizacionales</h3>
+        <p>Coaches ejecutivos, de equipos o facilitadores de liderazgo con acceso a decisores de alto nivel.</p>
+        <span class="icp-tag">Fit ideal</span>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">⚡</div>
+        <h3>Consultores de transformación digital</h3>
+        <p>Si acompañás empresas en digitalización o experiencia del colaborador, Humand encaja natural en tu propuesta.</p>
+        <span class="icp-tag">Fit ideal</span>
+      </div>
+      <div class="icp-card">
+        <div class="icp-icon">📣</div>
+        <h3>Líderes de opinión en RRHH</h3>
+        <p>Con comunidad activa y red de decisores en gestión, cultura o liderazgo organizacional.</p>
+        <span class="icp-tag">Fit ideal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como">
+  <div class="section-inner">
+    <p class="section-tag">¿Cómo funciona?</p>
+    <h2 class="section-title">Tu rol es simple:<br>abrir la puerta</h2>
+    <p class="section-sub">No te pedimos que vendas ni que seas experto en Humand. Solo que nos presentes. Nosotros hacemos todo lo demás.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Identificás un cliente</h3>
+        <p>De los que ya atendés — empresas con equipos que necesitan mejor comunicación, cultura o gestión de personas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Nos mencionás</h3>
+        <p>Solo abrís la conversación: "conozco una plataforma que podría complementar lo que estamos trabajando juntos."</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Agendamos juntos</h3>
+        <p>Nuestro equipo presenta Humand con una demo customizada para ese cliente. Vos podés estar o no.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Vos cobrás</h3>
+        <p>Si el cliente contrata, recibís el 50% del revenue del primer año. Y tu servicio se potencia con una herramienta concreta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARNING -->
+<section class="earning">
+  <div class="section-inner">
+    <p class="section-tag">Ingresos potenciales</p>
+    <h2 class="section-title">Una fuente de ingreso<br>que se suma a lo que ya hacés</h2>
+    <div class="earn-box">
+      <div class="earn-highlight">50%</div>
+      <div class="earn-desc">del revenue del primer año por cada cliente que presentás — sin objetivos mínimos ni exclusividad</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="section-inner">
+    <p class="section-tag">Por qué funciona</p>
+    <h2 class="section-title">Un producto que<br>tus clientes van a querer</h2>
+    <p class="section-sub">Métricas reales que hacen más fácil la conversación con tus clientes.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-num">98%</div>
+        <div class="proof-text">Retención de clientes año a año</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">82%</div>
+        <div class="proof-text">Tasa de uso promedio en empresas activas</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">3 m.</div>
+        <div class="proof-text">Tiempo promedio para generar ROI</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">300%</div>
+        <div class="proof-text">Aumento del compromiso de colaboradores</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">+1K</div>
+        <div class="proof-text">Empresas en +40 países confían en Humand</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num">33%</div>
+        <div class="proof-text">Conversion rate de oportunidades calificadas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="cta">
+  <div class="cta-wrap">
+    <p class="section-tag" style="text-align:center;">¿Siguiente paso?</p>
+    <h2 class="section-title" style="text-align:center;">Agendá una sesión<br>de 30 minutos</h2>
+    <p class="section-sub" style="text-align:center; margin: 0 auto 40px;">Te cuento cómo funciona el modelo, te muestro la plataforma en vivo y vemos juntos si tiene sentido para los clientes con los que trabajás. Sin compromiso.</p>
+    <a href="https://calendly.com/tatiana-perez-humand/30min" target="_blank" class="cta-big">Me interesa conocer el modelo de alianza →</a>
+    <div class="cta-note">Sin exclusividad · Sin cuotas mínimas · Comisión del 50% garantizada por contrato</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>humand</span> · Llevamos la felicidad al mundo laboral · Backed by Y Combinator</p>
+</footer>
+
+</body>
+</html>
